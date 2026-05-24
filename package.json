@@ -7,8 +7,10 @@
     "start": "vite",
     "dev": "vite",
     "build": "vite build",
+    "build:pages": "VITE_BASE_PATH=/movies/ vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "preview:pages": "VITE_BASE_PATH=/movies/ vite preview"
   },
   "dependencies": {
     "axios": "^1.16.1",
