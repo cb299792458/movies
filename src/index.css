@@ -1,5 +1,77 @@
 @import 'tailwindcss';
 
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.movies-grid-enter {
+  animation: fade-in 0.65s ease-out both;
+}
+
+.skeleton-grid-enter {
+  animation: fade-in 0.55s ease-out both;
+}
+
+.movie-card-enter {
+  animation: fade-in-up 0.7s ease-out both;
+}
+
+.filter-panel {
+  transition:
+    background-color 0.5s ease,
+    border-color 0.5s ease;
+}
+
+.filter-label {
+  transition: color 0.5s ease;
+}
+
+.filter-value {
+  transition:
+    color 0.5s ease,
+    opacity 0.5s ease;
+}
+
+.genre-filter-btn {
+  transition:
+    background-color 0.5s ease,
+    border-color 0.5s ease,
+    color 0.5s ease,
+    box-shadow 0.5s ease,
+    transform 0.5s ease;
+}
+
+.genre-filter-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.25);
+}
+
+.genre-filter-btn:active {
+  transform: scale(0.97) translateY(0);
+}
+
+.genre-filter-btn--selected {
+  box-shadow: 0 4px 16px rgb(251 191 36 / 0.35);
+}
+
 .year-range {
   position: relative;
   height: 2.75rem;
@@ -15,6 +87,7 @@
   transform: translateY(-50%);
   border-radius: 9999px;
   background-color: #475569;
+  transition: background-color 0.5s ease;
 }
 
 .year-range__fill {
@@ -24,8 +97,11 @@
   border-radius: 9999px;
   background-color: #fbbf24;
   transition:
-    left 80ms ease-out,
-    width 80ms ease-out;
+    left 0.45s ease-out,
+    width 0.45s ease-out,
+    background-color 0.5s ease,
+    box-shadow 0.5s ease;
+  box-shadow: 0 0 12px rgb(251 191 36 / 0.25);
 }
 
 .year-range__input {
@@ -63,6 +139,15 @@
   box-shadow: 0 1px 3px rgb(0 0 0 / 0.35);
   cursor: pointer;
   pointer-events: auto;
+  transition:
+    transform 0.45s ease-out,
+    box-shadow 0.45s ease-out,
+    background-color 0.45s ease;
+}
+
+.year-range__input:active::-webkit-slider-thumb {
+  transform: scale(1.2);
+  box-shadow: 0 2px 10px rgb(251 191 36 / 0.55);
 }
 
 .year-range__input::-moz-range-thumb {
@@ -74,4 +159,17 @@
   box-shadow: 0 1px 3px rgb(0 0 0 / 0.35);
   cursor: pointer;
   pointer-events: auto;
+  transition:
+    transform 0.45s ease-out,
+    box-shadow 0.45s ease-out,
+    background-color 0.45s ease;
+}
+
+.year-range__input:active::-moz-range-thumb {
+  transform: scale(1.2);
+  box-shadow: 0 2px 10px rgb(251 191 36 / 0.55);
+}
+
+.year-range__endpoint {
+  transition: color 0.5s ease, opacity 0.5s ease;
 }

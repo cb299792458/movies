@@ -34,20 +34,20 @@ function YearFilter({ minYear, maxYear, onChange, isUpdating }) {
   }
 
   return (
-    <section className="border-b border-slate-700 bg-slate-800/80 px-2 py-4 sm:px-4">
+    <section className="filter-panel border-b border-slate-700 bg-slate-800/80 px-2 py-4 sm:px-4">
       <div className="flex items-center gap-4 sm:gap-6">
         <div className="w-28 shrink-0 sm:w-36">
-          <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-300">
+          <h2 className="filter-label text-sm font-semibold uppercase tracking-wide text-slate-300">
             Release year
           </h2>
-          <p className="mt-0.5 text-lg font-medium text-white">
+          <p className="filter-value mt-0.5 text-lg font-medium text-white">
             {minYear} – {maxYear}
           </p>
         </div>
 
         <div className="flex min-w-0 flex-1 items-center gap-3">
           <span
-            className="w-10 shrink-0 text-right text-xs tabular-nums text-slate-500"
+            className="year-range__endpoint w-10 shrink-0 text-right text-xs tabular-nums text-slate-500"
             aria-hidden="true"
           >
             {YEAR_FILTER_MIN}
@@ -105,18 +105,24 @@ function YearFilter({ minYear, maxYear, onChange, isUpdating }) {
           </div>
 
           <span
-            className="w-10 shrink-0 text-xs tabular-nums text-slate-500"
+            className="year-range__endpoint w-10 shrink-0 text-xs tabular-nums text-slate-500"
             aria-hidden="true"
           >
             {YEAR_FILTER_MAX}
           </span>
         </div>
 
-        {isUpdating && (
-          <p className="shrink-0 text-xs text-slate-400 sm:text-sm">
-            Updating…
-          </p>
-        )}
+        <p
+          className={`w-[5.25rem] shrink-0 text-right text-xs text-slate-400 transition-opacity duration-500 sm:w-24 sm:text-sm ${
+            isUpdating
+              ? 'visible opacity-100'
+              : 'invisible opacity-0'
+          }`}
+          aria-live="polite"
+          aria-hidden={!isUpdating}
+        >
+          Updating…
+        </p>
       </div>
     </section>
   )

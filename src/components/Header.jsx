@@ -5,7 +5,7 @@ function Header() {
         Movie List
       </h1>
       <p className="mt-1 text-sm text-slate-400">
-        Popular movies — adjust the year range below
+        Popular movies — filter by year and genre, scroll for more
       </p>
     </header>
   )
