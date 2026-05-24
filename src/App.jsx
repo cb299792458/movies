@@ -1,6 +1,5 @@
 import Header from './components/Header'
 import MovieGrid from './components/MovieGrid'
-import './App.css'
 
 function App() {
   return (
