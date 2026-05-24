@@ -2,9 +2,11 @@ import { useEffect, useState } from 'react'
 import {
   fetchDiscoverMovies,
   fetchMovieGenres,
+  formatVoteCount,
   getGenreNames,
   getPosterUrl,
   getReleaseYear,
+  getTmdbMovieUrl,
   YEAR_FILTER_DEFAULT_MAX,
   YEAR_FILTER_DEFAULT_MIN,
 } from '../api/movies'
@@ -22,11 +24,15 @@ const GRID_CLASS =
 function mapMovies(results, genreMap) {
   return results.map((movie) => ({
     id: movie.id,
+    tmdbUrl: getTmdbMovieUrl(movie.id),
     title: movie.title,
     posterUrl: getPosterUrl(movie.poster_path),
     genres: getGenreNames(movie.genre_ids, genreMap),
     releaseYear: getReleaseYear(movie.release_date),
     voteAverage: movie.vote_average,
+    voteCount: formatVoteCount(movie.vote_count),
+    voteCountRaw: movie.vote_count,
+    overview: movie.overview,
   }))
 }
 

@@ -12,9 +12,18 @@ function MovieCardSkeleton() {
           <div className="h-4 w-4/5 animate-pulse rounded bg-slate-200" />
         </div>
 
+        <div className="space-y-1.5">
+          <div className="h-3 w-full animate-pulse rounded bg-slate-200" />
+          <div className="h-3 w-full animate-pulse rounded bg-slate-200" />
+          <div className="h-3 w-4/5 animate-pulse rounded bg-slate-200" />
+        </div>
+
         <div className="space-y-2">
           <div className="h-5 w-full animate-pulse rounded bg-slate-200" />
-          <div className="h-3 w-1/4 animate-pulse rounded bg-slate-200" />
+          <div className="flex justify-between gap-2">
+            <div className="h-3 w-10 animate-pulse rounded bg-slate-200" />
+            <div className="h-3 w-14 animate-pulse rounded bg-slate-200" />
+          </div>
         </div>
       </div>
     </article>

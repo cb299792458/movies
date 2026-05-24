@@ -60,6 +60,10 @@ export function getPosterUrl(posterPath) {
   return posterPath ? `${POSTER_BASE_URL}${posterPath}` : null
 }
 
+export function getTmdbMovieUrl(movieId) {
+  return `https://www.themoviedb.org/movie/${movieId}`
+}
+
 export function getGenreNames(genreIds, genreMap) {
   return genreIds
     .map((id) => genreMap[id])
@@ -69,4 +73,14 @@ export function getGenreNames(genreIds, genreMap) {
 
 export function getReleaseYear(releaseDate) {
   return releaseDate ? releaseDate.slice(0, 4) : 'N/A'
+}
+
+export function formatVoteCount(count) {
+  if (count >= 1_000_000) {
+    return `${(count / 1_000_000).toFixed(1).replace(/\.0$/, '')}M`
+  }
+  if (count >= 1_000) {
+    return `${(count / 1_000).toFixed(1).replace(/\.0$/, '')}k`
+  }
+  return String(count)
 }
